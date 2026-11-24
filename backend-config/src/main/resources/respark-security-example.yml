@@ -1,0 +1,13 @@
+# Copy into each service application.yml and override for env.
+respark:
+  security:
+    cookie-domain: ""          # prod example: .respark.shop
+    cookie-secure: false       # true on HTTPS
+    cookie-same-site: Lax      # None requires cookie-secure=true
+    access-token-max-age-minutes: 5
+    refresh-token-max-age-days: 7
+    allowed-origins:
+      - http://localhost:3000
+      - http://localhost:3001
+      # - https://your-user.vercel.app
+      # - https://your-admin.vercel.app
