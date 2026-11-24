@@ -1,4 +1,4 @@
-package com.cakequake.cakequakeback.common.exception;
+package com.respark.common.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -11,18 +11,19 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorResponseDTO {
+
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
-    private LocalDateTime timestamp; //발생 시각
-    private int status; //HTTP 상태 코드
-    private int code;   // 비즈니스 에러 코드
-    private String message;  //사용자 메시지
+    private LocalDateTime timestamp;
+
+    private int status;
+    private int code;
+    private String message;
 
     public ErrorResponseDTO(ErrorCode errorCode) {
         this.timestamp = LocalDateTime.now();
